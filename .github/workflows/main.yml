@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      version:
+        default: 1.0.0
   
 permissions:
   checks: write
