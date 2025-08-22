@@ -4,6 +4,6 @@ describe('The app', () => {
     it('tells your name', () => {
         cy.visit('')
         cy.get('h1')
-        .should('have.text', 'Hello, my name is Máté Soós!')
+        .should('have.text', 'Hello, my name is Mate Soos!')
     })
   })
