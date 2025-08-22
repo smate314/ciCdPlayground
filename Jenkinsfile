@@ -20,6 +20,13 @@ pipeline {
         stage('build') {
             steps {
                 sh 'yarn build'
+                script {
+                    currentBuild.description = """
+                        |Environment: ${env.BRANCH_NAME}
+                        |Commit: ${env.GIT_COMMIT.take(8)}
+                        |Test Status: ${currentBuild.result ?: 'SUCCESS'}
+                    """.stripMargin()
+                }
             }
         }
 
