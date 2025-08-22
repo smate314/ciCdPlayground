@@ -40,6 +40,8 @@ jobs:
         files: 'reports/*.xml'
     - name: Create and push tag
       run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         git tag -a "v${{ inputs.version }}" -m "Release version ${{ inputs.version }}"
         git push origin "v${{ inputs.version }}"
 
