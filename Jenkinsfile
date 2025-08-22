@@ -22,7 +22,7 @@ pipeline {
                 sh 'yarn build'
                 script {
                     currentBuild.description = "Build from commit ${env.GIT_COMMIT.take(8)}"
-                    buildName = "Name of build"
+                    currentBuild.displayName = "Name of build"
                 }
             }
         }
