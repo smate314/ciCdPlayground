@@ -12,7 +12,7 @@ permissions:
   checks: write
   pull-requests: write
   id-token: write
-  contents: read
+  contents: write
   pages: write
 
 jobs:
@@ -38,3 +38,8 @@ jobs:
       if: always()
       with:
         files: 'reports/*.xml'
+    - name: Create and push tag
+      run: |
+        git tag -a "v${{ inputs.version }}" -m "Release version ${{ inputs.version }}"
+        git push origin "v${{ inputs.version }}"
+
